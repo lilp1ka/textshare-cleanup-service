@@ -19,7 +19,7 @@ public class RedisConfig {
         template.setKeySerializer(stringRedisSerializer);
         template.setValueSerializer(stringRedisSerializer);
         template.setHashKeySerializer(stringRedisSerializer);
-        template.setHashKeySerializer(stringRedisSerializer);
+        template.setHashValueSerializer(stringRedisSerializer);
         return template;
     }
 }
