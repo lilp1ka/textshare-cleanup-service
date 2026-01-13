@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8000
 
 spring:
   application:
@@ -7,13 +7,15 @@ spring:
   data:
     redis:
       host: localhost
-      port: 6379
+      port: 6380
+      username: ${REDIS_USERNAME:default}
+      password: ${REDIS_PASSWORD:1111}
 
 minio:
-  url: http://localhost:9000
-  access-key: minioadmin
-  secret-key: minioadmin123
-  bucket-name: textshare-notes
+  url: http://localhost:9000 #todo
+  access-key: ${MINIO_ACCESS_KEY:minioadmin}
+  secret-key: ${MINIO_SECRET_KEY:minioadmin123}
+  bucket-name: ${MINIO_BUCKET:textshare-notes}
 
 cleanup:
   interval-minutes: 10
