@@ -36,12 +36,12 @@ public class RedisNoteRepository {
     }
 
     public void deleteFromZsetAndHset(String code){
-        redisTemplate.delete("note:" + code);
+        redisTemplate.delete(code);
         redisTemplate.opsForZSet().remove("notes:expiry", code);
     }
 
     public String getS3Key(String code){
-        Object s3key = redisTemplate.opsForHash().get("note:" + code, "s3key");
+        Object s3key = redisTemplate.opsForHash().get(code, "link_text");
 
         return s3key != null ? s3key.toString() : null;
     }
