@@ -26,7 +26,7 @@ public class CleanupScheduler {
         this.cleanupProperties = cleanupProperties;
     }
 
-    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.SECONDS) //todo: move to cfg
+    @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.HOURS) //todo: move to cfg
     public void runCleanup(){
         if(!cleanupProperties.enabled()){
             log.debug("Cleanup is disabled");
